@@ -1808,6 +1808,14 @@ a.whatsapp svg{background:#25d366;border-radius:50%;padding:7px;width:32px;heigh
 .gem-credit{margin:10px 0 0;text-align:center;font-size:11.5px;color:#8f8268}
 .gem-credit a{color:#b8a47a}
 @media (max-width:600px){#gem-run .gemstone-card{flex-basis:200px;width:200px}#gem-run .gemstone-card .gemstone-img{height:190px}}
+
+/* tj-run: gold and silver galleries run sideways */
+#gold-run,#silver-run{display:flex!important;gap:18px!important;overflow-x:auto;scrollbar-width:none;padding:6px 2px 14px;cursor:grab;-webkit-overflow-scrolling:touch;grid-template-columns:none!important}
+#gold-run::-webkit-scrollbar,#silver-run::-webkit-scrollbar{display:none}
+#gold-run .product,#silver-run .product{flex:0 0 270px;width:270px}
+#gold-run .product-image,#silver-run .product-image{height:300px}
+#gold-run .product-image img,#silver-run .product-image img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:600px){#gold-run .product,#silver-run .product{flex-basis:215px;width:215px}#gold-run .product-image,#silver-run .product-image{height:240px}}
 </style>
 
 
@@ -2394,7 +2402,7 @@ gold jewellery designs.
 
 
 
-<div class="product-grid">
+<div class="product-grid" id="gold-run">
 
 
 <div class="product reveal">
@@ -2521,50 +2529,57 @@ ENQUIRE ON WHATSAPP
 
 
 
-<div class="product reveal">
 
-<div class="product-image">
 
-<div class="product-label">
-GOLD
+
+<div class="product reveal"><div class="product-image"><div class="product-label">GOLD</div><img src="images/gold/bangles.jpg" alt="916 hallmark gold bangles" loading="lazy"></div><div class="product-info"><h3>Gold Bangles</h3><p>916 • Daily • Bridal</p><button class="product-btn" onclick="enquire('Gold Bangles')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">GOLD</div><img src="images/gold/jhumka.jpg" alt="Gold jhumka earrings" loading="lazy"></div><div class="product-info"><h3>Gold Jhumka</h3><p>Traditional • Festive</p><button class="product-btn" onclick="enquire('Gold Jhumka')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">GOLD</div><img src="images/gold/mangalsutra.jpg" alt="Gold mangalsutra" loading="lazy"></div><div class="product-info"><h3>Mangalsutra</h3><p>Bridal • Auspicious</p><button class="product-btn" onclick="enquire('Mangalsutra')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">GOLD</div><img src="images/gold/ring2.jpg" alt="Gold ring" loading="lazy"></div><div class="product-info"><h3>Gold Rings</h3><p>Classic • Bridal • Engagement</p><button class="product-btn" onclick="enquire('Gold Rings')">ENQUIRE ON WHATSAPP</button></div></div>
 </div>
-
-
-<img loading="lazy"
-src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=90"
-alt="Gold Bracelet">
 
 </div>
 
+</section>
+<section
+class="section"
+id="silver">
 
-<div class="product-info">
+<div class="container">
 
-<h3>
-Bracelets & Bangles
-</h3>
 
-<p>
-Traditional • Contemporary
+<div class="section-header reveal">
+
+<div class="eyebrow">
+THE SILVER COLLECTION
+</div>
+
+
+<h2 class="section-title">
+Silver Elegance
+</h2>
+
+
+<p class="section-description">
+
+Anklets, necklaces, earrings and gifting pieces in pure, bright silver for every occasion.
+
 </p>
 
+</div>
 
-<button
-class="product-btn"
-onclick="enquire('Gold Bracelets and Bangles')">
 
-ENQUIRE ON WHATSAPP
 
-</button>
-
+<div class="product-grid" id="silver-run"><div class="product reveal"><div class="product-image"><div class="product-label">SILVER</div><img src="images/silver/necklace.jpg" alt="Silver necklace with lapis lazuli" loading="lazy"></div><div class="product-info"><h3>Silver Necklaces</h3><p>Chains • Pendants • Lapis</p><button class="product-btn" onclick="enquire('Silver Necklaces')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">SILVER</div><img src="images/silver/payal.jpg" alt="Silver payal anklet" loading="lazy"></div><div class="product-info"><h3>Silver Payal</h3><p>Traditional • Bridal</p><button class="product-btn" onclick="enquire('Silver Payal')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">SILVER</div><img src="images/silver/earrings.jpg" alt="Traditional silver earrings" loading="lazy"></div><div class="product-info"><h3>Silver Earrings</h3><p>Tribal • Festive</p><button class="product-btn" onclick="enquire('Silver Earrings')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">SILVER</div><img src="images/silver/filigree.jpg" alt="Silver filigree earrings with pearls" loading="lazy"></div><div class="product-info"><h3>Filigree Earrings</h3><p>Fine work • Pearls</p><button class="product-btn" onclick="enquire('Silver Filigree Earrings')">ENQUIRE ON WHATSAPP</button></div></div>
+<div class="product reveal"><div class="product-image"><div class="product-label">SILVER</div><img src="images/silver/menear.jpg" alt="Silver earrings for men" loading="lazy"></div><div class="product-info"><h3>Men’s Silver</h3><p>Studs • Rings • Chains</p><button class="product-btn" onclick="enquire('Mens Silver')">ENQUIRE ON WHATSAPP</button></div></div>
 </div>
 
 </div>
 
-
-</div>
-
-</div>
-
+<p class="gem-credit">Photos: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> contributors (Sri Veerabadra Jewellers CC0; SpeakingArch, Anton Croos, GTSPACE, V Karnathia, Detlef thomas, Mauro Cateb under CC BY-SA 4.0).</p>
 </section>
 
 
@@ -3242,6 +3257,18 @@ function tick(){
  else if(g.scrollLeft>=half)g.scrollLeft-=half;
  requestAnimationFrame(tick)}
 requestAnimationFrame(tick);
+})();
+</script>
+<script>
+/* tj-run: auto-running galleries */
+(function(){
+function run(id){var g=document.getElementById(id);if(!g)return;
+ [].slice.call(g.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');g.appendChild(k)});
+ var paused=false,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ ['mouseenter','touchstart','pointerdown'].forEach(function(e){g.addEventListener(e,function(){paused=true})});
+ ['mouseleave','touchend','pointerup'].forEach(function(e){g.addEventListener(e,function(){setTimeout(function(){paused=false},1500)})});
+ (function tick(){var half=g.scrollWidth/2;if(!paused&&!reduce){var x=g.scrollLeft+0.6;if(x>=half)x-=half;g.scrollLeft=x}else if(g.scrollLeft>=half)g.scrollLeft-=half;requestAnimationFrame(tick)})();}
+run('gold-run');run('silver-run');
 })();
 </script>
 </body>
