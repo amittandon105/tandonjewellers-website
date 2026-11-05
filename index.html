@@ -1816,6 +1816,16 @@ a.whatsapp svg{background:#25d366;border-radius:50%;padding:7px;width:32px;heigh
 #gold-run .product-image,#silver-run .product-image{height:300px}
 #gold-run .product-image img,#silver-run .product-image img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:600px){#gold-run .product,#silver-run .product{flex-basis:215px;width:215px}#gold-run .product-image,#silver-run .product-image{height:240px}}
+
+/* tj-hero-slides: hero background images slide sideways */
+.hero{background:none!important;background-color:#090909!important}
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-track{display:flex;width:500%;height:100%;animation:heroSlide 28s infinite}
+.hero-track>div{flex:0 0 20%;height:100%;background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.65) 38%,rgba(0,0,0,.15) 100%);pointer-events:none}
+.hero::after{z-index:1}
+@keyframes heroSlide{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-20%)}50%,70%{transform:translateX(-40%)}75%,95%{transform:translateX(-60%)}100%{transform:translateX(-80%)}}
+@media (prefers-reduced-motion:reduce){.hero-track{animation:none}}
 </style>
 
 
@@ -1923,6 +1933,7 @@ CONTACT
 
 <section class="hero"
 id="home">
+<div class="hero-slides" aria-hidden="true"><div class="hero-track"><div style="background-image:url(https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2200&q=85)"></div><div style="background-image:url(https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=2200&q=85)"></div><div style="background-image:url(https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=2200&q=85)"></div><div style="background-image:url(https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=2200&q=85)"></div><div style="background-image:url(https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2200&q=85)"></div></div></div>
 
 <div class="hero-content reveal">
 
