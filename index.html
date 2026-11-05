@@ -1659,6 +1659,34 @@ html{scroll-behavior:smooth}
 a,button{transition:color .25s ease,background-color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}
 a[class*="btn"]:hover,button:hover{transform:translateY(-1px)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* tj-visit and tj-header-lattice: showroom section with the Google map, and a billing-app style header */
+.header{background-image:repeating-linear-gradient(45deg,rgba(230,199,127,.06) 0 1px,transparent 1px 24px),repeating-linear-gradient(-45deg,rgba(230,199,127,.06) 0 1px,transparent 1px 24px),linear-gradient(120deg,rgba(42,6,16,.98) 0%,rgba(74,11,24,.98) 48%,rgba(125,27,46,.96) 100%)!important}
+.logo .logo-mark{height:54px}
+.logo strong{font-size:26px}
+@media (max-width:600px){.logo .logo-mark{height:38px}.logo strong{font-size:19px}}
+#visit{background:linear-gradient(160deg,#2a0610 0%,#4a0b18 55%,#2a0610 100%);color:#f3e3c3;padding:76px 24px;border-top:2px solid var(--gold);scroll-margin-top:90px}
+#visit .visit-wrap{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:38px;align-items:center}
+#visit .eyebrow{font:600 11px 'Montserrat',sans-serif;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+#visit h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;letter-spacing:2px;color:var(--gold2);margin:6px 0 4px}
+#visit .stars{color:var(--gold2);font-size:22px;letter-spacing:3px;margin:12px 0 6px}
+#visit .stars span{font:600 12px 'Montserrat',sans-serif;letter-spacing:1.5px;color:#f3e3c3;margin-left:8px}
+#visit p{line-height:1.75;margin:8px 0;font-size:15px}
+#visit p a{color:var(--gold2);text-decoration:none}
+#visit .visit-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#visit .visit-btns a{padding:12px 20px;border:1px solid var(--gold);color:var(--gold2);text-decoration:none;font:600 11px 'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase}
+#visit .visit-btns a.primary{background:linear-gradient(95deg,#b8892f,#ecd08a 50%,#b8892f);color:#3a0812;border-color:transparent}
+#visit iframe{display:block;width:100%;height:390px;border:1px solid rgba(230,199,127,.5);border-radius:6px}
+@media (max-width:820px){#visit{padding:56px 18px}#visit .visit-wrap{grid-template-columns:1fr}#visit h2{font-size:32px}#visit iframe{height:300px}}
+
+/* tj-header-rich: a taller, richer header with a gold hairline, closer to the billing app */
+.header-inner{height:96px!important}
+.header{border-bottom:0!important;box-shadow:0 10px 30px -16px rgba(0,0,0,.8)}
+.header::after{content:"";display:block;height:2px;background:linear-gradient(90deg,transparent,#e6c77f 20%,#fff3d6 50%,#e6c77f 80%,transparent)}
+.logo .logo-mark{height:62px!important;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.logo strong{font-size:29px!important;letter-spacing:4px;color:#ecd08a}
+.logo small{letter-spacing:5px!important}
+@media (max-width:600px){.header-inner{height:74px!important}.logo .logo-mark{height:40px!important}.logo strong{font-size:19px!important;letter-spacing:2px}}
 </style>
 
 
@@ -2812,6 +2840,25 @@ CHAT ON WHATSAPP
 <!-- =====================================================
      FOOTER
 ===================================================== -->
+
+
+<section id="visit">
+<div class="visit-wrap">
+<div>
+<div class="eyebrow">Visit our showroom</div>
+<h2>Tandon Jewellers</h2>
+<div class="stars" aria-label="Rated 5 stars on Google">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0 on Google</span></div>
+<p>Babeja Market, Gudari Bazar Chowk,<br>Near Hanuman Mandir, Samastipur, Bihar 848101</p>
+<p>Call us: <a href="tel:+916204601253">62046 01253</a> &nbsp;&middot;&nbsp; <a href="tel:+919798804937">97988 04937</a></p>
+<div class="visit-btns">
+<a class="primary" href="https://www.google.com/maps/dir/?api=1&destination=Tandon+Jewellers+Gudari+Bazar+Samastipur&destination_place_id=ChIJTw-cW0iR7TkRhWbYlYGm--w" target="_blank" rel="noopener">Get directions</a>
+<a href="https://search.google.com/local/reviews?placeid=ChIJTw-cW0iR7TkRhWbYlYGm--w" target="_blank" rel="noopener">Read reviews</a>
+<a href="https://search.google.com/local/writereview?placeid=ChIJTw-cW0iR7TkRhWbYlYGm--w" target="_blank" rel="noopener">Write a review</a>
+</div>
+</div>
+<div><iframe title="Tandon Jewellers on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?cid=17076425487600346757&amp;hl=en&amp;z=16&amp;output=embed"></iframe></div>
+</div>
+</section>
 
 <footer>
 
