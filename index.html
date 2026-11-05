@@ -1826,6 +1826,19 @@ a.whatsapp svg{background:#25d366;border-radius:50%;padding:7px;width:32px;heigh
 .hero::after{z-index:1}
 @keyframes heroSlide{0%,20%{transform:translateX(0)}25%,45%{transform:translateX(-20%)}50%,70%{transform:translateX(-40%)}75%,95%{transform:translateX(-60%)}100%{transform:translateX(-80%)}}
 @media (prefers-reduced-motion:reduce){.hero-track{animation:none}}
+
+/* tj-festival: festival greeting banner */
+#festival{position:relative;z-index:5;background:linear-gradient(95deg,#2a0610,#7d1b2e 50%,#2a0610);border-bottom:1px solid rgba(230,199,127,.6);color:#f3e3c3}
+#festival::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,236,180,.18) 50%,transparent 70%);background-size:250% 100%;animation:festShine 6s linear infinite;pointer-events:none}
+@keyframes festShine{from{background-position:150% 0}to{background-position:-100% 0}}
+#festival .fest-in{position:relative;max-width:1250px;margin:0 auto;padding:12px 56px 12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
+#festival .fest-ic{font-size:30px}
+#festival .fest-tx{display:flex;flex-direction:column;text-align:left}
+#festival .fest-tx b{font:600 22px 'Cormorant Garamond','Noto Serif Devanagari',serif;color:#ecd08a;letter-spacing:.5px}
+#festival .fest-tx span{font:400 13px 'Montserrat',sans-serif;color:#e9dab8;line-height:1.5;max-width:640px}
+#festival .fest-btn{padding:10px 18px;border:1px solid #ecd08a;color:#ecd08a;text-decoration:none;font:600 10.5px 'Montserrat',sans-serif;letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+#festival #fest-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:0;color:#cdbb95;font-size:26px;cursor:pointer;line-height:1}
+@media (max-width:700px){#festival .fest-in{padding:12px 40px 12px 14px;gap:10px;justify-content:flex-start}#festival .fest-tx b{font-size:18px}#festival .fest-tx span{font-size:12px}#festival .fest-ic{font-size:24px}}
 </style>
 
 
@@ -1924,6 +1937,26 @@ CONTACT
 </div>
 
 </header>
+<div id="festival" style="display:none" role="region" aria-label="Festival greeting"><div class="fest-in"><span class="fest-ic" id="fest-ic"></span><div class="fest-tx"><b id="fest-h"></b><span id="fest-l"></span></div><a id="fest-a" class="fest-btn" target="_blank" rel="noopener">Wish us on WhatsApp</a><button type="button" id="fest-x" aria-label="Close">&times;</button></div></div>
+<script>
+(function(){
+/* Festival dates for the Indian calendar. Add the next year's dates here each year (from, to, heading, line, icon). */
+var F=[["2026-11-04", "2026-11-06", "शुभ धनतेरस", "May your home be filled with prosperity and joy. Dhanteras is traditionally considered an auspicious day to buy gold and silver.", "🪔"], ["2026-11-07", "2026-11-09", "शुभ दीपावली", "Wishing you light, happiness and prosperity this Diwali.", "🪔"], ["2026-11-10", "2026-11-11", "भाई दूज की शुभकामनाएं", "May the bond of love between brothers and sisters always stay strong.", "🪷"], ["2026-11-13", "2026-11-16", "छठ पूजा की हार्दिक शुभकामनाएं", "May the blessings of Chhathi Maiya stay with your family.", "🌅"], ["2026-11-24", "2026-11-24", "गुरु नानक जयंती की शुभकामनाएं", "Wishing you peace, kindness and blessings on Guru Nanak Jayanti.", "🙏"], ["2026-12-24", "2026-12-25", "Merry Christmas", "Wishing you joy, peace and happiness.", "🎄"], ["2026-12-31", "2027-01-01", "नव वर्ष की शुभकामनाएं", "Wishing you a bright and prosperous New Year.", "✨"], ["2027-01-13", "2027-01-15", "मकर संक्रांति / लोहड़ी की शुभकामनाएं", "Wishing you warmth, happiness and good harvests.", "🪁"], ["2027-01-26", "2027-01-26", "गणतंत्र दिवस की शुभकामनाएं", "Happy Republic Day from all of us at Tandon Jewellers.", "🇮🇳"], ["2027-02-10", "2027-02-11", "वसंत पंचमी की शुभकामनाएं", "May knowledge and happiness bloom in your life.", "🌼"], ["2027-03-05", "2027-03-06", "महाशिवरात्रि की हार्दिक शुभकामनाएं", "Har Har Mahadev. Wishing you peace and blessings.", "🔱"], ["2027-03-20", "2027-03-23", "होली की हार्दिक शुभकामनाएं", "May your life be filled with colour and joy.", "🎨"], ["2027-04-14", "2027-04-15", "रामनवमी की हार्दिक शुभकामनाएं", "Jai Shri Ram. Wishing you and your family blessings.", "🙏"], ["2027-05-08", "2027-05-09", "शुभ अक्षय तृतीया", "Akshaya Tritiya is traditionally believed to be an auspicious day to begin something new and to buy gold.", "✨"], ["2027-08-15", "2027-08-15", "स्वतंत्रता दिवस की शुभकामनाएं", "Happy Independence Day from Tandon Jewellers.", "🇮🇳"], ["2027-08-16", "2027-08-17", "रक्षा बंधन की शुभकामनाएं", "May the bond of love between brothers and sisters always stay strong.", "🪢"], ["2027-09-04", "2027-09-05", "गणेश चतुर्थी की शुभकामनाएं", "Ganpati Bappa Morya. Wishing you a blessed festival.", "🙏"], ["2027-09-30", "2027-10-08", "शारदीय नवरात्रि की शुभकामनाएं", "Wishing you nine days of devotion, joy and blessings.", "🪔"], ["2027-10-09", "2027-10-09", "विजयादशमी की हार्दिक शुभकामनाएं", "May good always win. Happy Dussehra.", "🏹"], ["2027-10-27", "2027-10-28", "शुभ धनतेरस", "May your home be filled with prosperity and joy.", "🪔"], ["2027-10-28", "2027-10-30", "शुभ दीपावली", "Wishing you light, happiness and prosperity this Diwali.", "🪔"]];
+var N=[["Diwali","दीपावली"]];
+var now=new Date(),t=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+var f=F.filter(function(x){return x[0]<=t&&t<=x[1]})[0];
+if(!f){var y=t.slice(0,4);var FX=[["12-24", "12-25", "Merry Christmas", "Wishing you joy, peace and happiness.", "🎄"], ["12-31", "01-01", "नव वर्ष की शुभकामनाएं", "Wishing you a bright and prosperous New Year.", "✨"], ["01-26", "01-26", "गणतंत्र दिवस की शुभकामनाएं", "Happy Republic Day from all of us at Tandon Jewellers.", "🇮🇳"], ["08-15", "08-15", "स्वतंत्रता दिवस की शुभकामनाएं", "Happy Independence Day from Tandon Jewellers.", "🇮🇳"]];FX.some(function(x){var a=x[0],b=x[1];var m=t.slice(5);var hit=a<=b?(a<=m&&m<=b):(m>=a||m<=b);if(hit){f=[t,t,x[2],x[3],x[4]];return true}})}
+var up=null;if(!f){var d=new Date(t+'T00:00:00Z').getTime();F.forEach(function(x){var k=Math.round((new Date(x[0]+'T00:00:00Z').getTime()-d)/864e5);if(k>0&&k<=5&&(!up||k<up.k))up={k:k,x:x}})}
+var box=document.getElementById('festival');if(!box)return;
+try{if(sessionStorage.getItem('fest-x')===t)return}catch(e){}
+if(f){document.getElementById('fest-ic').textContent=f[4];document.getElementById('fest-h').textContent=f[2];document.getElementById('fest-l').textContent=f[3];
+ document.getElementById('fest-a').href='https://wa.me/916204601253?text='+encodeURIComponent('Hello Tandon Jewellers, '+f[2]+'!');box.style.display='block'}
+else if(up){document.getElementById('fest-ic').textContent=up.x[4];document.getElementById('fest-h').textContent=up.x[2].replace('शुभ ','');document.getElementById('fest-l').textContent='Coming in '+up.k+(up.k>1?' days':' day')+'. Visit our showroom for festive jewellery.';
+ document.getElementById('fest-a').textContent='Plan your visit';document.getElementById('fest-a').href='#contact';box.style.display='block'}
+document.getElementById('fest-x').onclick=function(){box.style.display='none';try{sessionStorage.setItem('fest-x',t)}catch(e){}};
+})();
+</script>
+
 
 
 
