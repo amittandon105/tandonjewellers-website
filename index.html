@@ -2438,6 +2438,31 @@ gemstones.
    
 
 <body>
+<!-- Live rate bar: Patna gold and silver rates, read from goodreturns.in in the visitor's browser. If they cannot be read, the bar stays hidden. -->
+<style>
+#tj-rate-strip{display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(42,6,16,.96);color:#f3e3c3;font:500 12px/1.4 'Montserrat',sans-serif;letter-spacing:.6px;text-align:center;padding:8px 76px 8px 12px;border-top:1px solid #c9a35b}
+#tj-rate-strip b{color:#e7d09b;font-weight:600}
+#tj-rate-strip span{white-space:nowrap}
+#tj-rate-strip small{display:block;opacity:.7;font-size:10.5px;margin-top:2px}
+</style>
+<div id="tj-rate-strip"></div>
+<script>
+(function(){
+  var strip = document.getElementById('tj-rate-strip');
+  function read(u){ return fetch(u, {cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(t){ return new DOMParser().parseFromString(t, 'text/html').body.textContent.replace(/\s+/g, ' '); }); }
+  function num(x){ return parseFloat(String(x).replace(/,/g, '')); }
+  function rs(n){ return '\u20B9' + Math.round(n).toLocaleString('en-IN'); }
+  Promise.all([read('https://www.goodreturns.in/gold-rates/patna.html'), read('https://www.goodreturns.in/silver-rates/patna.html')]).then(function(a){
+    var g22 = a[0].match(/\u20B9\s*([\d,]+(?:\.\d+)?)\s*per gram for 22 karat/i), g24 = a[0].match(/\u20B9\s*([\d,]+(?:\.\d+)?)\s*per gram for 24 karat/i), sk = a[1].match(/\u20B9\s*([\d,]+)\s*per kilogram/i);
+    if(!g22 || !g24 || !sk) return;
+    var v22 = num(g22[1]) * 10, v24 = num(g24[1]) * 10, vs = num(sk[1]);
+    if(!(v24 > 20000 && v22 > 20000 && v22 < v24 && vs > 20000)) return;
+    strip.innerHTML = '<span>Gold 24K <b>' + rs(v24) + '</b>/10g</span> &nbsp;\u00B7&nbsp; <span>Gold 22K <b>' + rs(v22) + '</b>/10g</span> &nbsp;\u00B7&nbsp; <span>Silver <b>' + rs(vs) + '</b>/kg</span><small>Patna rates, indicative, before GST and making charges. Call 62046 01253 for today\u2019s exact rate.</small>';
+    strip.style.display = 'block'; document.body.style.paddingBottom = strip.offsetHeight + 'px';
+  }).catch(function(){});
+})();
+</script>
+
 
    <!-- =====================================================
      FEATURE
