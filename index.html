@@ -1798,6 +1798,16 @@ a.whatsapp svg{background:#25d366;border-radius:50%;padding:7px;width:32px;heigh
 #finder .fd-dot{flex:none;width:54px;height:54px;border-radius:50%;box-shadow:0 0 18px rgba(230,199,127,.25)}
 #finder .fd-tag{font:600 10.5px 'Montserrat',sans-serif;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:3px}
 @media (max-width:600px){#finder{padding:52px 16px}#finder h2{font-size:30px}#finder #fd-body{padding:22px 18px 0}}
+
+/* tj-gemrun: horizontally running gemstone gallery */
+#gem-run{display:flex!important;gap:18px!important;overflow-x:auto;scrollbar-width:none;padding:6px 2px 14px;cursor:grab;-webkit-overflow-scrolling:touch}
+#gem-run::-webkit-scrollbar{display:none}
+#gem-run .gemstone-card{flex:0 0 250px;width:250px}
+#gem-run .gemstone-card .gemstone-img{height:230px}
+#gem-run .gemstone-card .gemstone-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gem-credit{margin:10px 0 0;text-align:center;font-size:11.5px;color:#8f8268}
+.gem-credit a{color:#b8a47a}
+@media (max-width:600px){#gem-run .gemstone-card{flex-basis:200px;width:200px}#gem-run .gemstone-card .gemstone-img{height:190px}}
 </style>
 
 
@@ -2595,7 +2605,7 @@ gemstones.
 </div>
 
 
-<div class="gemstone-grid">
+<div class="gemstone-grid" id="gem-run">
 
     <!-- 1. RUBY / MANIK -->
     <div class="gemstone-card reveal">
@@ -2643,7 +2653,7 @@ gemstones.
     <div class="gemstone-card reveal">
         <div class="gemstone-img">
             <img
-                src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"
+                src="images/gems/pearl.jpg"
                 alt="Pearl gemstone - Moti"
                 loading="lazy">
         </div>
@@ -2680,6 +2690,33 @@ gemstones.
             <p>GOLDEN TOPAZ COLLECTION</p>
         </div>
     </div>
+    <div class="gemstone-card reveal">
+        <div class="gemstone-img">
+            <img src="images/gems/coral.jpg" alt="Red Coral gemstone in silver ring - Moonga" loading="lazy">
+        </div>
+        <div class="gemstone-info">
+            <h3>Red Coral (Moonga)</h3>
+            <p>TRADITIONAL RED GEMSTONE</p>
+        </div>
+    </div>
+    <div class="gemstone-card reveal">
+        <div class="gemstone-img">
+            <img src="images/gems/ysap.jpg" alt="Yellow Sapphire gemstone - Pukhraj" loading="lazy">
+        </div>
+        <div class="gemstone-info">
+            <h3>Yellow Sapphire (Pukhraj)</h3>
+            <p>GOLDEN YELLOW GEMSTONE</p>
+        </div>
+    </div>
+    <div class="gemstone-card reveal">
+        <div class="gemstone-img">
+            <img src="images/gems/rud.jpg" alt="Rudraksha beads" loading="lazy">
+        </div>
+        <div class="gemstone-info">
+            <h3>Rudraksha</h3>
+            <p>SACRED SEEDS, 1 TO 14 MUKHI</p>
+        </div>
+    </div>
 
 </div>
 </div>
@@ -2690,6 +2727,7 @@ gemstones.
 
 </div>
 
+<p class="gem-credit">Tap a stone to ask about it on WhatsApp. Photos: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> contributors (Billjones94, CC0; Merasmita, CC BY-SA 4.0 for rudraksha; W.carter, CC BY 4.0 for pearl).</p>
 </section>
 
    
@@ -3185,5 +3223,26 @@ document
 </script>
 
 
+<script>
+/* tj-gemrun */
+(function(){
+var g=document.getElementById('gem-run');if(!g)return;
+var orig=[].slice.call(g.children);
+orig.forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');g.appendChild(k)});
+[].slice.call(g.children).forEach(function(c){c.style.cursor='pointer';c.addEventListener('click',function(){
+ var n=(c.querySelector('h3')||{}).textContent||'a gemstone';
+ window.open('https://wa.me/916204601253?text='+encodeURIComponent('Hello Tandon Jewellers, I would like to know about '+n+'.'),'_blank','noopener')})});
+var paused=false,half=0,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+['mouseenter','touchstart','pointerdown'].forEach(function(e){g.addEventListener(e,function(){paused=true})});
+['mouseleave','touchend','pointerup'].forEach(function(e){g.addEventListener(e,function(){setTimeout(function(){paused=false},1500)})});
+var pos=0;
+function tick(){
+ half=g.scrollWidth/2;
+ if(!paused&&!reduce){pos=g.scrollLeft+0.6;if(pos>=half)pos-=half;g.scrollLeft=pos}
+ else if(g.scrollLeft>=half)g.scrollLeft-=half;
+ requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
