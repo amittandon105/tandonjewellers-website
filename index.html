@@ -1641,8 +1641,32 @@ footer{
 
 }
 
+
+/* Brand update: TJ diamond logo and the maroon-and-gold look used in the billing app */
+.logo{display:inline-grid;grid-template-columns:auto auto;column-gap:12px;align-items:center;text-align:left}
+.logo .logo-mark{grid-row:1 / span 2;height:46px;width:auto}
+.logo strong,.logo small{text-align:left}
+.footer-mark{display:block;height:74px;width:auto;margin:0 0 14px}
+footer{background:linear-gradient(160deg,#2a0610 0%,#4a0b18 55%,#2a0610 100%)!important;border-top:2px solid var(--gold)}
+@media (max-width:600px){.logo .logo-mark{height:36px}.logo{column-gap:9px}}
+
+/* tj-polish: finishing touches */
+html{scroll-behavior:smooth}
+::selection{background:#4a0b18;color:#f3e4b8}
+a,button{transition:color .25s ease,background-color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+a[class*="btn"]:hover,button:hover{transform:translateY(-1px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 
+
+<meta name="theme-color" content="#4a0b18">
+<link rel="canonical" href="https://www.tandonjewellers.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tandon Jewellers, Samastipur: Gold, Silver and Gemstones since 1991">
+<meta property="og:description" content="Fine gold, diamond, silver and gemstone jewellery for weddings and everyday moments.">
+<meta property="og:url" content="https://www.tandonjewellers.com/">
+<meta property="og:image" content="https://www.tandonjewellers.com/images/tj-logo.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "JewelryStore", "name": "Tandon Jewellers", "url": "https://www.tandonjewellers.com/", "logo": "https://www.tandonjewellers.com/images/tj-logo.png", "foundingDate": "1991", "telephone": ["+91 62046 01253", "+91 97988 04937"], "address": {"@type": "PostalAddress", "streetAddress": "Babeja Market, Gudari Bazar Chowk, near Hanuman Mandir", "addressLocality": "Samastipur", "addressRegion": "Bihar", "postalCode": "848101", "addressCountry": "IN"}}</script>
 </head>
 
 <!-- =====================================================
@@ -1663,6 +1687,8 @@ onclick="toggleMenu()">
 
 
 <a href="#home" class="logo">
+
+    <img class="logo-mark" src="images/tj-logo.png" alt="Tandon Jewellers logo">
 
     <strong>TANDON JEWELLERS</strong>
 
@@ -2791,6 +2817,7 @@ CHAT ON WHATSAPP
 
 <div>
 
+<img class="footer-mark" src="images/tj-logo.png" alt="Tandon Jewellers logo">
 <div class="footer-logo">
 
 TANDON
