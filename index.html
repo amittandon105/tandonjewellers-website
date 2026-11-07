@@ -1843,6 +1843,11 @@ a.whatsapp svg{background:#25d366;border-radius:50%;padding:7px;width:32px;heigh
 
 
 <meta name="theme-color" content="#4a0b18">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tandon">
+<meta name="application-name" content="Tandon Jewellers">
+<link rel="manifest" href="/manifest.webmanifest">
 <link rel="canonical" href="https://www.tandonjewellers.com/">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -3319,6 +3324,13 @@ function run(id){var g=document.getElementById(id);if(!g)return;
  (function tick(){var half=g.scrollWidth/2;if(!paused&&!reduce){var x=g.scrollLeft+0.6;if(x>=half)x-=half;g.scrollLeft=x}else if(g.scrollLeft>=half)g.scrollLeft-=half;requestAnimationFrame(tick)})();}
 run('gold-run');run('silver-run');
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  });
+}
 </script>
 </body>
 </html>

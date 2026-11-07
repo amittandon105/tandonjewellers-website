@@ -1,0 +1,31 @@
+{
+  "name": "Tandon Jewellers",
+  "short_name": "Tandon",
+  "description": "Tandon Jewellers, Samastipur: gold, silver, diamond and gemstone jewellery since 1991",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#4a0b18",
+  "theme_color": "#4a0b18",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
